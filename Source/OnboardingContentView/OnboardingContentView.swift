@@ -16,13 +16,13 @@ protocol OnboardingContentViewDelegate: class {
 
 class OnboardingContentView: UIView {
 
-    fileprivate struct Constants {
+     struct Constants {
         static let dyOffsetAnimation: CGFloat = 110
         static let showDuration: Double = 0.8
         static let hideDuration: Double = 0.2
     }
 
-    fileprivate var currentItem: OnboardingContentViewItem?
+     var currentItem: OnboardingContentViewItem?
     weak var delegate: OnboardingContentViewDelegate?
 
     init(itemsCount _: Int, delegate: OnboardingContentViewDelegate) {
@@ -80,12 +80,12 @@ extension OnboardingContentView {
 
 extension OnboardingContentView {
 
-    fileprivate func commonInit() {
+     func commonInit() {
 
         currentItem = createItem(0)
     }
 
-    fileprivate func createItem(_ index: Int) -> OnboardingContentViewItem {
+     func createItem(_ index: Int) -> OnboardingContentViewItem {
 
         guard let info = delegate?.onboardingItemAtIndex(index) else {
             return OnboardingContentViewItem.itemOnView(self)
@@ -110,7 +110,7 @@ extension OnboardingContentView {
 
 extension OnboardingContentView {
 
-    fileprivate func hideItemView(_ item: OnboardingContentViewItem?, duration: Double) {
+     func hideItemView(_ item: OnboardingContentViewItem?, duration: Double) {
         guard let item = item else {
             return
         }
@@ -129,7 +129,7 @@ extension OnboardingContentView {
         })
     }
 
-    fileprivate func showItemView(_ item: OnboardingContentViewItem, duration: Double) {
+     func showItemView(_ item: OnboardingContentViewItem, duration: Double) {
         item.descriptionBottomConstraint?.constant = Constants.dyOffsetAnimation
         item.titleCenterConstraint?.constant /= 2
         item.alpha = 0

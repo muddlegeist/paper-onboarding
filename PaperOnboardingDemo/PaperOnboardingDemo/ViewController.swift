@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var skipButton: UIButton!
 
-    fileprivate let items = [
+     let items = [
         OnboardingItemInfo(informationImage: Asset.hotels.image,
                            title: "Hotels",
                            description: "All hotels and hostels are sorted by hospitality rating",

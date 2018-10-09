@@ -59,12 +59,12 @@ extension PageViewItem {
 
 extension PageViewItem {
 
-    fileprivate func commonInit() {
+     func commonInit() {
         centerView = createBorderView()
         imageView = createImageView()
     }
 
-    fileprivate func createBorderView() -> UIView {
+     func createBorderView() -> UIView {
         let view = Init(UIView(frame: CGRect.zero)) {
             $0.backgroundColor = .blue
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +93,7 @@ extension PageViewItem {
         return view
     }
 
-    fileprivate func createCircleLayer(_ radius: CGFloat, lineWidth: CGFloat) -> CAShapeLayer {
+     func createCircleLayer(_ radius: CGFloat, lineWidth: CGFloat) -> CAShapeLayer {
         let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius - lineWidth / 2.0, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
         let layer = Init(CAShapeLayer()) {
             $0.path = path.cgPath
@@ -104,7 +104,7 @@ extension PageViewItem {
         return layer
     }
 
-    fileprivate func createImageView() -> UIImageView {
+     func createImageView() -> UIImageView {
         let imageView = Init(UIImageView(frame: CGRect.zero)) {
             $0.contentMode = .scaleAspectFit
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -125,7 +125,7 @@ extension PageViewItem {
 
 extension PageViewItem {
 
-    fileprivate func circleScaleAnimation(_ toRadius: CGFloat, duration: Double) -> CABasicAnimation {
+     func circleScaleAnimation(_ toRadius: CGFloat, duration: Double) -> CABasicAnimation {
         let path = UIBezierPath(arcCenter: CGPoint.zero, radius: toRadius, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
         let animation = Init(CABasicAnimation(keyPath: "path")) {
             $0.duration = duration
@@ -136,7 +136,7 @@ extension PageViewItem {
         return animation
     }
 
-    fileprivate func circleBackgroundAnimation(_ toColor: UIColor, duration: Double) -> CABasicAnimation {
+     func circleBackgroundAnimation(_ toColor: UIColor, duration: Double) -> CABasicAnimation {
         let animation = Init(CABasicAnimation(keyPath: "fillColor")) {
             $0.duration = duration
             $0.toValue = toColor.cgColor
@@ -147,7 +147,7 @@ extension PageViewItem {
         return animation
     }
 
-    fileprivate func imageAlphaAnimation(_ toValue: CGFloat, duration: Double) {
+     func imageAlphaAnimation(_ toValue: CGFloat, duration: Double) {
         UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: {
             self.imageView?.alpha = toValue
         }, completion: nil)

@@ -24,7 +24,7 @@ class PageView: UIView {
         }
     }
 
-    fileprivate var containerX: NSLayoutConstraint?
+     var containerX: NSLayoutConstraint?
     var containerView: PageContrainer?
 
     init(frame: CGRect, itemsCount: Int, radius: CGFloat, selectedRadius: CGFloat, itemColor: @escaping (Int) -> UIColor) {
@@ -108,7 +108,7 @@ extension PageView {
 
 extension PageView {
 
-    fileprivate func commonInit() {
+     func commonInit() {
         containerView = createContainerView()
         currentIndex(0, animated: false)
         backgroundColor = .clear
@@ -119,7 +119,7 @@ extension PageView {
 
 extension PageView {
 
-    fileprivate func createContainerView() -> PageContrainer {
+     func createContainerView() -> PageContrainer {
         let pageControl = PageContrainer(radius: itemRadius,
                                          selectedRadius: selectedItemRadius,
                                          space: space,
@@ -146,7 +146,7 @@ extension PageView {
         return container
     }
 
-    fileprivate func configurePageItems(_ items: [PageViewItem]?) {
+     func configurePageItems(_ items: [PageViewItem]?) {
         guard let items = items else {
             return
         }
@@ -160,7 +160,7 @@ extension PageView {
 
 extension PageView {
 
-    fileprivate func moveContainerTo(_ index: Int, animated: Bool = true, duration: Double = 0) {
+     func moveContainerTo(_ index: Int, animated: Bool = true, duration: Double = 0) {
         guard let containerX = self.containerX else {
             return
         }

@@ -14,10 +14,10 @@ class PageContrainer: UIView {
     let space: CGFloat // space between items
     var currentIndex = 0
 
-    fileprivate let itemRadius: CGFloat
-    fileprivate let selectedItemRadius: CGFloat
-    fileprivate let itemsCount: Int
-    fileprivate let animationKey = "animationKey"
+     let itemRadius: CGFloat
+     let selectedItemRadius: CGFloat
+     let itemsCount: Int
+     let animationKey = "animationKey"
 
     init(radius: CGFloat, selectedRadius: CGFloat, space: CGFloat, itemsCount: Int, itemColor: (Int) -> UIColor) {
         self.itemsCount = itemsCount
@@ -54,7 +54,7 @@ extension PageContrainer {
 
 extension PageContrainer {
 
-    fileprivate func animationItem(_ item: PageViewItem, selected: Bool, duration: Double, fillColor: Bool = false) {
+     func animationItem(_ item: PageViewItem, selected: Bool, duration: Double, fillColor: Bool = false) {
         let toValue = selected == true ? selectedItemRadius * 2 : itemRadius * 2
         item.constraints
             .filter { $0.identifier == "animationKey" }
@@ -74,7 +74,7 @@ extension PageContrainer {
 
 extension PageContrainer {
 
-    fileprivate func createItems(_ count: Int, radius: CGFloat, selectedRadius: CGFloat, itemColor: (Int) -> UIColor) -> [PageViewItem] {
+     func createItems(_ count: Int, radius: CGFloat, selectedRadius: CGFloat, itemColor: (Int) -> UIColor) -> [PageViewItem] {
         var items = [PageViewItem]()
         // create first item
         var tag = 1
@@ -94,7 +94,7 @@ extension PageContrainer {
         return items
     }
 
-    fileprivate func createItem(_ radius: CGFloat, selectedRadius: CGFloat, isSelect: Bool = false, itemColor: UIColor) -> PageViewItem {
+     func createItem(_ radius: CGFloat, selectedRadius: CGFloat, isSelect: Bool = false, itemColor: UIColor) -> PageViewItem {
         let item = Init(PageViewItem(radius: radius, itemColor: itemColor, selectedRadius: selectedRadius, isSelect: isSelect)) {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.backgroundColor = .clear
@@ -104,7 +104,7 @@ extension PageContrainer {
         return item
     }
 
-    fileprivate func addConstraintsToView(_ item: UIView, radius: CGFloat) {
+     func addConstraintsToView(_ item: UIView, radius: CGFloat) {
         [NSLayoutConstraint.Attribute.left, NSLayoutConstraint.Attribute.centerY].forEach { attribute in
             (self, item) >>>- { $0.attribute = attribute; return }
         }
@@ -119,7 +119,7 @@ extension PageContrainer {
         }
     }
 
-    fileprivate func addConstraintsToView(_ item: UIView, leftItem: UIView, radius: CGFloat) {
+     func addConstraintsToView(_ item: UIView, leftItem: UIView, radius: CGFloat) {
         (self, item) >>>- { $0.attribute = .centerY; return }
         (self, item, leftItem) >>>- {
             $0.attribute = .leading

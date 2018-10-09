@@ -46,19 +46,19 @@ open class PaperOnboarding: UIView {
     @IBOutlet weak open var delegate: AnyObject?
 
     /// current index item
-    open fileprivate(set) var currentIndex: Int = 0
-    fileprivate(set) var itemsCount: Int = 0
+    open fileprivate (set) var currentIndex: Int = 0
+    fileprivate (set) var itemsCount: Int = 0
 
-    fileprivate var itemsInfo: [OnboardingItemInfo]?
+     var itemsInfo: [OnboardingItemInfo]?
 
-    fileprivate let pageViewBottomConstant: CGFloat
-    fileprivate var pageViewSelectedRadius: CGFloat = 22
-    fileprivate var pageViewRadius: CGFloat = 8
+     let pageViewBottomConstant: CGFloat
+     var pageViewSelectedRadius: CGFloat = 22
+     var pageViewRadius: CGFloat = 8
 
-    fileprivate var fillAnimationView: FillAnimationView?
-    fileprivate var pageView: PageView?
-    fileprivate var gestureControl: GestureControl?
-    fileprivate var contentView: OnboardingContentView?
+     var fillAnimationView: FillAnimationView?
+     var pageView: PageView?
+     var gestureControl: GestureControl?
+     var contentView: OnboardingContentView?
     
     public init(pageViewBottomConstant: CGFloat = 32) {
         
@@ -113,7 +113,7 @@ public extension PaperOnboarding {
 
 extension PaperOnboarding {
 
-    fileprivate func commonInit() {
+     func commonInit() {
         if case let dataSource as PaperOnboardingDataSource = dataSource {
             itemsCount = dataSource.onboardingItemsCount()
         }
@@ -137,7 +137,7 @@ extension PaperOnboarding {
         addGestureRecognizer(tapGesture)
     }
 
-    @objc fileprivate func tapAction(_ sender: UITapGestureRecognizer) {
+    @objc  func tapAction(_ sender: UITapGestureRecognizer) {
         guard
             (delegate as? PaperOnboardingDelegate)?.enableTapsOnPageControl == true,
             let pageView = self.pageView,
@@ -152,7 +152,7 @@ extension PaperOnboarding {
         (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
     }
 
-    fileprivate func createPageView() -> PageView {
+     func createPageView() -> PageView {
         let pageView = PageView.pageViewOnView(
             self,
             itemsCount: itemsCount,
@@ -171,7 +171,7 @@ extension PaperOnboarding {
         return pageView
     }
 
-    fileprivate func createItemsInfo() -> [OnboardingItemInfo] {
+     func createItemsInfo() -> [OnboardingItemInfo] {
         guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
             fatalError("set dataSource")
         }
@@ -189,7 +189,7 @@ extension PaperOnboarding {
 
 extension PaperOnboarding {
 
-    fileprivate func backgroundColor(_ index: Int) -> UIColor {
+     func backgroundColor(_ index: Int) -> UIColor {
         guard let color = itemsInfo?[index].color else {
             return .black
         }

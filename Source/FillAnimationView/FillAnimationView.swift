@@ -10,7 +10,7 @@ import UIKit
 
 class FillAnimationView: UIView {
 
-    fileprivate struct Constant {
+     struct Constant {
         static let path = "path"
         static let circle = "circle"
     }
@@ -51,7 +51,7 @@ extension FillAnimationView {
 
 extension FillAnimationView {
 
-    fileprivate func createCircleLayer(_ position: CGPoint, color: UIColor) -> CAShapeLayer {
+     func createCircleLayer(_ position: CGPoint, color: UIColor) -> CAShapeLayer {
         let path = UIBezierPath(arcCenter: position, radius: 1, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
         let layer = Init(CAShapeLayer()) {
             $0.path = path.cgPath
@@ -68,7 +68,7 @@ extension FillAnimationView {
 
 extension FillAnimationView: CAAnimationDelegate {
 
-    fileprivate func animationToRadius(_ radius: CGFloat, center: CGPoint, duration: Double) -> CABasicAnimation {
+     func animationToRadius(_ radius: CGFloat, center: CGPoint, duration: Double) -> CABasicAnimation {
         let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
         let animation = Init(CABasicAnimation(keyPath: Constant.path)) {
             $0.duration = duration
