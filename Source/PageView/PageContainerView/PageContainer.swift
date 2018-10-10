@@ -31,11 +31,8 @@ open class PageContrainer: UIView {
     required public init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
 // MARK: public
-
-public extension PageContrainer {
 
     func currenteIndex(_ index: Int, duration: Double, animated _: Bool) {
         guard let items = self.items,
@@ -48,11 +45,8 @@ public extension PageContrainer {
 
         currentIndex = index
     }
-}
 
 // MARK: animations
-
-public extension PageContrainer {
 
      func animationItem(_ item: PageViewItem, selected: Bool, duration: Double, fillColor: Bool = false) {
         let toValue = selected == true ? selectedItemRadius * 2 : itemRadius * 2
@@ -68,11 +62,8 @@ public extension PageContrainer {
 
         item.animationSelected(selected, duration: duration, fillColor: fillColor)
     }
-}
 
 // MARK: create
-
-public extension PageContrainer {
 
      func createItems(_ count: Int, radius: CGFloat, selectedRadius: CGFloat, itemColor: (Int) -> UIColor) -> [PageViewItem] {
         var items = [PageViewItem]()

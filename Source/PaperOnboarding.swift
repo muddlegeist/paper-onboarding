@@ -75,11 +75,8 @@ open class PaperOnboarding: UIView {
         
         super.init(coder: aDecoder)
     }
-}
 
 // MARK: methods
-
-public extension PaperOnboarding {
 
     /**
      Scrolls through the PaperOnboarding until a index is at a particular location on the screen.
@@ -107,11 +104,8 @@ public extension PaperOnboarding {
             (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToLeaving()
         }
     }
-}
 
 // MARK: create
-
-public extension PaperOnboarding {
 
      func commonInit() {
         if case let dataSource as PaperOnboardingDataSource = dataSource {
@@ -183,11 +177,8 @@ public extension PaperOnboarding {
         }
         return items
     }
-}
 
 // MARK: helpers
-
-public extension PaperOnboarding {
 
      func backgroundColor(_ index: Int) -> UIColor {
         guard let color = itemsInfo?[index].color else {

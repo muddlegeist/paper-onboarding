@@ -50,11 +50,8 @@ open class PageView: UIView {
         }
         return nil
     }
-}
 
 // MARK: public
-
-public extension PageView {
 
     class func pageViewOnView(_ view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat, itemColor: @escaping (Int) -> UIColor) -> PageView {
         let pageView = PageView(frame: CGRect.zero,
@@ -102,22 +99,16 @@ public extension PageView {
         }
         return nil
     }
-}
 
 // MARK: life cicle
-
-extension PageView {
 
      func commonInit() {
         containerView = createContainerView()
         currentIndex(0, animated: false)
         backgroundColor = .clear
     }
-}
 
 // MARK: create
-
-public extension PageView {
 
      func createContainerView() -> PageContrainer {
         let pageControl = PageContrainer(radius: itemRadius,
@@ -154,11 +145,8 @@ public extension PageView {
             configuration?(items[index], index)
         }
     }
-}
 
 // MARK: animation
-
-extension PageView {
 
      func moveContainerTo(_ index: Int, animated: Bool = true, duration: Double = 0) {
         guard let containerX = self.containerX else {

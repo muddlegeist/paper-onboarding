@@ -35,11 +35,8 @@ open class PageViewItem: UIView {
     required public init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
 // MARK: public
-
-public extension PageViewItem {
 
     func animationSelected(_ selected: Bool, duration: Double, fillColor: Bool) {
         let toAlpha: CGFloat = selected == true ? 1 : 0
@@ -53,11 +50,8 @@ public extension PageViewItem {
         circleLayer?.add(scaleAnimation, forKey: nil)
         circleLayer?.add(colorAnimation, forKey: nil)
     }
-}
 
 // MARK: configuration
-
-public extension PageViewItem {
 
      func commonInit() {
         centerView = createBorderView()
@@ -119,11 +113,8 @@ public extension PageViewItem {
         
         return imageView
     }
-}
 
 // MARK: animations
-
-public extension PageViewItem {
 
      func circleScaleAnimation(_ toRadius: CGFloat, duration: Double) -> CABasicAnimation {
         let path = UIBezierPath(arcCenter: CGPoint.zero, radius: toRadius, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
