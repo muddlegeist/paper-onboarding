@@ -8,18 +8,18 @@
 
 import UIKit
 
-public class OnboardingItemInfo {
-    public let informationImage: UIImage
-    public let title: String
-    public let description: String
-    public let pageIcon: UIImage
-    public let color: UIColor
-    public let titleColor: UIColor
-    public let descriptionColor: UIColor
-    public let titleFont: UIFont
-    public let descriptionFont: UIFont
+open class OnboardingItemInfo {
+    public let informationImage: UIImage?
+    public let title: String?
+    public let description: String?
+    public let pageIcon: UIImage?
+    public let color: UIColor?
+    public let titleColor: UIColor?
+    public let descriptionColor: UIColor?
+    public let titleFont: UIFont?
+    public let descriptionFont: UIFont?
     
-    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont) {
+    public init (informationImage: UIImage?, title: String?, description: String?, pageIcon: UIImage?, color: UIColor?, titleColor: UIColor?, descriptionColor: UIColor?, titleFont: UIFont?, descriptionFont: UIFont?) {
         self.informationImage = informationImage
         self.title = title
         self.description = description
