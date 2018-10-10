@@ -49,16 +49,16 @@ open class PaperOnboarding: UIView {
     open var currentIndex: Int = 0
     open var itemsCount: Int = 0
 
-     var itemsInfo: [OnboardingItemInfo]?
+     open var itemsInfo: [OnboardingItemInfo]?
 
-     let pageViewBottomConstant: CGFloat
-     var pageViewSelectedRadius: CGFloat = 22
-     var pageViewRadius: CGFloat = 8
+     public let pageViewBottomConstant: CGFloat
+     open var pageViewSelectedRadius: CGFloat = 22
+     open var pageViewRadius: CGFloat = 8
 
-     var fillAnimationView: FillAnimationView?
-     var pageView: PageView?
-     var gestureControl: GestureControl?
-     var contentView: OnboardingContentView?
+     open var fillAnimationView: FillAnimationView?
+     open var pageView: PageView?
+     open var gestureControl: GestureControl?
+     open var contentView: OnboardingContentView?
     
     public init(pageViewBottomConstant: CGFloat = 32) {
         

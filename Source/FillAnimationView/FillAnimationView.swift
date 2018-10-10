@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FillAnimationView: UIView {
+open class FillAnimationView: UIView {
 
      struct Constant {
         static let path = "path"

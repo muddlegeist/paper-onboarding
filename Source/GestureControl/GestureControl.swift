@@ -12,7 +12,7 @@ protocol GestureControlDelegate: class {
     func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizer.Direction)
 }
 
-class GestureControl: UIView {
+open class GestureControl: UIView {
 
     weak var delegate: GestureControlDelegate!
 
@@ -42,7 +42,7 @@ class GestureControl: UIView {
         }
     }
 
-    required init?(coder _: NSCoder) {
+    required public init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
