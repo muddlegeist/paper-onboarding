@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ConstraintInfo {
+public struct ConstraintInfo {
     var attribute: NSLayoutConstraint.Attribute = .left
     var secondAttribute: NSLayoutConstraint.Attribute = .notAnAttribute
     var constant: CGFloat = 0
@@ -24,7 +24,7 @@ precedencegroup constOp {
 infix operator >>>-: constOp
 
 @discardableResult
-func >>>- <T: UIView>(left: (T, T), block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
+public func >>>- <T: UIView>(left: (T, T), block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
     var info = ConstraintInfo()
     block(&info)
     info.secondAttribute = info.secondAttribute == .notAnAttribute ? info.attribute : info.secondAttribute
@@ -42,7 +42,7 @@ func >>>- <T: UIView>(left: (T, T), block: (inout ConstraintInfo) -> Void) -> NS
 }
 
 @discardableResult
-func >>>- <T: UIView>(left: T, block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
+public func >>>- <T: UIView>(left: T, block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
     var info = ConstraintInfo()
     block(&info)
 
@@ -59,7 +59,7 @@ func >>>- <T: UIView>(left: T, block: (inout ConstraintInfo) -> Void) -> NSLayou
 }
 
 @discardableResult
-func >>>- <T: UIView>(left: (T, T, T), block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
+public func >>>- <T: UIView>(left: (T, T, T), block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
     var info = ConstraintInfo()
     block(&info)
     info.secondAttribute = info.secondAttribute == .notAnAttribute ? info.attribute : info.secondAttribute
