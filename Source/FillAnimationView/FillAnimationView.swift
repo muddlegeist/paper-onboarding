@@ -14,13 +14,10 @@ open class FillAnimationView: UIView {
         static let path = "path"
         static let circle = "circle"
     }
-}
 
 // MARK: public
 
-extension FillAnimationView {
-
-    class func animationViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
+    open class func animationViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
         let animationView = Init(FillAnimationView(frame: CGRect.zero)) {
             $0.backgroundColor = color
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +33,7 @@ extension FillAnimationView {
         return animationView
     }
 
-    func fillAnimation(_ color: UIColor, centerPosition: CGPoint, duration: Double) {
+    open func fillAnimation(_ color: UIColor, centerPosition: CGPoint, duration: Double) {
 
         let radius = max(bounds.size.width, bounds.size.height) * 1.5
         let circle = createCircleLayer(centerPosition, color: color)
@@ -45,13 +42,10 @@ extension FillAnimationView {
         animation.setValue(circle, forKey: Constant.circle)
         circle.add(animation, forKey: nil)
     }
-}
 
 // MARK: create
 
-extension FillAnimationView {
-
-     func createCircleLayer(_ position: CGPoint, color: UIColor) -> CAShapeLayer {
+     open func createCircleLayer(_ position: CGPoint, color: UIColor) -> CAShapeLayer {
         let path = UIBezierPath(arcCenter: position, radius: 1, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
         let layer = Init(CAShapeLayer()) {
             $0.path = path.cgPath
@@ -63,7 +57,6 @@ extension FillAnimationView {
         return layer
     }
 }
-
 // MARK: animation
 
 extension FillAnimationView: CAAnimationDelegate {
