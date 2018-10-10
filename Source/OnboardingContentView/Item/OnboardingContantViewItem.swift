@@ -30,7 +30,7 @@ open class OnboardingContentViewItem: UIView {
 
 // MARK: public
 
-    class func itemOnView(_ view: UIView) -> OnboardingContentViewItem {
+    open class func itemOnView(_ view: UIView) -> OnboardingContentViewItem {
         let item = Init(OnboardingContentViewItem(frame: CGRect.zero)) {
             $0.backgroundColor = .clear
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +65,7 @@ open class OnboardingContentViewItem: UIView {
 
 // MARK: create
 
-    func commonInit() {
+    open func commonInit() {
 
         let titleLabel = createTitleLabel(self)
         let descriptionLabel = createDescriptionLabel(self)
@@ -90,7 +90,7 @@ open class OnboardingContentViewItem: UIView {
         self.imageView = imageView
     }
 
-    func createTitleLabel(_ onView: UIView) -> UILabel {
+    open func createTitleLabel(_ onView: UIView) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "Nunito-Bold", size: 36)
         }
@@ -113,7 +113,7 @@ open class OnboardingContentViewItem: UIView {
         return label
     }
 
-    func createDescriptionLabel(_ onView: UIView) -> UILabel {
+    open func createDescriptionLabel(_ onView: UIView) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "OpenSans-Regular", size: 14)
             $0.numberOfLines = 0
@@ -142,7 +142,7 @@ open class OnboardingContentViewItem: UIView {
         return label
     }
 
-    func createLabel() -> UILabel {
+    open func createLabel() -> UILabel {
         return Init(UILabel(frame: CGRect.zero)) {
             $0.backgroundColor = .clear
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -151,7 +151,7 @@ open class OnboardingContentViewItem: UIView {
         }
     }
 
-    func createImage(_ onView: UIView) -> UIImageView {
+    open func createImage(_ onView: UIView) -> UIImageView {
         let imageView = Init(UIImageView(frame: CGRect.zero)) {
             $0.contentMode = .scaleAspectFit
             $0.translatesAutoresizingMaskIntoConstraints = false

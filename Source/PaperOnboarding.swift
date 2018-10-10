@@ -208,11 +208,11 @@ extension PaperOnboarding: GestureControlDelegate {
 
 extension PaperOnboarding: OnboardingContentViewDelegate {
 
-    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo? {
+    public func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo? {
         return itemsInfo?[index]
     }
 
-    @objc func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+    @objc public func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
         (delegate as? PaperOnboardingDelegate)?.onboardingConfigurationItem(item, index: index)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OnboardingContentViewDelegate: class {
+public protocol OnboardingContentViewDelegate: class {
 
     func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo?
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int)
@@ -38,7 +38,7 @@ open class OnboardingContentView: UIView {
 
 // MARK: public
 
-    func currentItem(_ index: Int, animated _: Bool) {
+    open func currentItem(_ index: Int, animated _: Bool) {
 
         let showItem = createItem(index)
         showItemView(showItem, duration: Constants.showDuration)
@@ -50,7 +50,7 @@ open class OnboardingContentView: UIView {
 
 // MARK: life cicle
 
-    class func contentViewOnView(_ view: UIView, delegate: OnboardingContentViewDelegate, itemsCount: Int, bottomConstant: CGFloat) -> OnboardingContentView {
+    open class func contentViewOnView(_ view: UIView, delegate: OnboardingContentViewDelegate, itemsCount: Int, bottomConstant: CGFloat) -> OnboardingContentView {
         let contentView = Init(OnboardingContentView(itemsCount: itemsCount, delegate: delegate)) {
             $0.backgroundColor = .clear
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -71,12 +71,12 @@ open class OnboardingContentView: UIView {
 
 // MARK: create
 
-     func commonInit() {
+     open func commonInit() {
 
         currentItem = createItem(0)
     }
 
-     func createItem(_ index: Int) -> OnboardingContentViewItem {
+     open func createItem(_ index: Int) -> OnboardingContentViewItem {
 
         guard let info = delegate?.onboardingItemAtIndex(index) else {
             return OnboardingContentViewItem.itemOnView(self)
@@ -98,7 +98,7 @@ open class OnboardingContentView: UIView {
 
 // MARK: animations
 
-     func hideItemView(_ item: OnboardingContentViewItem?, duration: Double) {
+     open func hideItemView(_ item: OnboardingContentViewItem?, duration: Double) {
         guard let item = item else {
             return
         }
@@ -117,7 +117,7 @@ open class OnboardingContentView: UIView {
         })
     }
 
-     func showItemView(_ item: OnboardingContentViewItem, duration: Double) {
+     open func showItemView(_ item: OnboardingContentViewItem, duration: Double) {
         item.descriptionBottomConstraint?.constant = Constants.dyOffsetAnimation
         item.titleCenterConstraint?.constant /= 2
         item.alpha = 0
