@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct OnboardingItemInfo {
+public class OnboardingItemInfo {
     public let informationImage: UIImage
     public let title: String
     public let description: String
