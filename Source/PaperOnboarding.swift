@@ -107,7 +107,7 @@ open class PaperOnboarding: UIView {
 
 // MARK: create
 
-     func commonInit() {
+     open func commonInit() {
         if case let dataSource as PaperOnboardingDataSource = dataSource {
             itemsCount = dataSource.onboardingItemsCount()
         }
@@ -146,7 +146,7 @@ open class PaperOnboarding: UIView {
         (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
     }
 
-     func createPageView() -> PageView {
+     open func createPageView() -> PageView {
         let pageView = PageView.pageViewOnView(
             self,
             itemsCount: itemsCount,
@@ -165,7 +165,7 @@ open class PaperOnboarding: UIView {
         return pageView
     }
 
-     func createItemsInfo() -> [OnboardingItemInfo] {
+     open func createItemsInfo() -> [OnboardingItemInfo] {
         guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
             fatalError("set dataSource")
         }
@@ -180,7 +180,7 @@ open class PaperOnboarding: UIView {
 
 // MARK: helpers
 
-     func backgroundColor(_ index: Int) -> UIColor {
+     open func backgroundColor(_ index: Int) -> UIColor {
         guard let color = itemsInfo?[index].color else {
             return .black
         }
