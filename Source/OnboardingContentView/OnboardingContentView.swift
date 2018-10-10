@@ -22,8 +22,8 @@ open class OnboardingContentView: UIView {
         static let hideDuration: Double = 0.2
     }
 
-     var currentItem: OnboardingContentViewItem?
-    weak var delegate: OnboardingContentViewDelegate?
+    open var currentItem: OnboardingContentViewItem?
+    open weak var delegate: OnboardingContentViewDelegate?
 
     init(itemsCount _: Int, delegate: OnboardingContentViewDelegate) {
         self.delegate = delegate
