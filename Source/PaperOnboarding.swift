@@ -46,8 +46,8 @@ open class PaperOnboarding: UIView {
     @IBOutlet weak open var delegate: AnyObject?
 
     /// current index item
-    open fileprivate (set) var currentIndex: Int = 0
-    fileprivate (set) var itemsCount: Int = 0
+    open var currentIndex: Int = 0
+    open var itemsCount: Int = 0
 
      var itemsInfo: [OnboardingItemInfo]?
 
@@ -111,7 +111,7 @@ public extension PaperOnboarding {
 
 // MARK: create
 
-extension PaperOnboarding {
+public extension PaperOnboarding {
 
      func commonInit() {
         if case let dataSource as PaperOnboardingDataSource = dataSource {
@@ -187,7 +187,7 @@ extension PaperOnboarding {
 
 // MARK: helpers
 
-extension PaperOnboarding {
+public extension PaperOnboarding {
 
      func backgroundColor(_ index: Int) -> UIColor {
         guard let color = itemsInfo?[index].color else {

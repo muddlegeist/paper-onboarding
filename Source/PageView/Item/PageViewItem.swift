@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageViewItem: UIView {
+open class PageViewItem: UIView {
 
     let circleRadius: CGFloat
     let selectedCircleRadius: CGFloat
@@ -32,14 +32,14 @@ class PageViewItem: UIView {
         commonInit()
     }
 
-    required init?(coder _: NSCoder) {
+    required public init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 // MARK: public
 
-extension PageViewItem {
+public extension PageViewItem {
 
     func animationSelected(_ selected: Bool, duration: Double, fillColor: Bool) {
         let toAlpha: CGFloat = selected == true ? 1 : 0
@@ -57,7 +57,7 @@ extension PageViewItem {
 
 // MARK: configuration
 
-extension PageViewItem {
+public extension PageViewItem {
 
      func commonInit() {
         centerView = createBorderView()
@@ -123,7 +123,7 @@ extension PageViewItem {
 
 // MARK: animations
 
-extension PageViewItem {
+public extension PageViewItem {
 
      func circleScaleAnimation(_ toRadius: CGFloat, duration: Double) -> CABasicAnimation {
         let path = UIBezierPath(arcCenter: CGPoint.zero, radius: toRadius, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)

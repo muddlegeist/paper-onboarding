@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageView: UIView {
+open class PageView: UIView {
 
     var itemsCount = 3
     var itemRadius: CGFloat = 8.0
@@ -36,9 +36,9 @@ class PageView: UIView {
         commonInit()
     }
 
-    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required public init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    override func hitTest(_ point: CGPoint, with _: UIEvent?) -> UIView? {
+    override open func hitTest(_ point: CGPoint, with _: UIEvent?) -> UIView? {
         guard
             let containerView = self.containerView,
             let items = containerView.items
@@ -54,7 +54,7 @@ class PageView: UIView {
 
 // MARK: public
 
-extension PageView {
+public extension PageView {
 
     class func pageViewOnView(_ view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat, itemColor: @escaping (Int) -> UIColor) -> PageView {
         let pageView = PageView(frame: CGRect.zero,
@@ -117,7 +117,7 @@ extension PageView {
 
 // MARK: create
 
-extension PageView {
+public extension PageView {
 
      func createContainerView() -> PageContrainer {
         let pageControl = PageContrainer(radius: itemRadius,
