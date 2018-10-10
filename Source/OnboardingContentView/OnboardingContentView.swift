@@ -32,6 +32,12 @@ open class OnboardingContentView: UIView {
         commonInit()
     }
 
+    required override public init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
     required public init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
