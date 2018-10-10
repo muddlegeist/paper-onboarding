@@ -14,7 +14,7 @@ protocol OnboardingContentViewDelegate: class {
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int)
 }
 
-class OnboardingContentView: UIView {
+open class OnboardingContentView: UIView {
 
      struct Constants {
         static let dyOffsetAnimation: CGFloat = 110
@@ -32,14 +32,11 @@ class OnboardingContentView: UIView {
         commonInit()
     }
 
-    required init?(coder _: NSCoder) {
+    required public init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
 // MARK: public
-
-extension OnboardingContentView {
 
     func currentItem(_ index: Int, animated _: Bool) {
 
@@ -50,11 +47,8 @@ extension OnboardingContentView {
 
         currentItem = showItem
     }
-}
 
 // MARK: life cicle
-
-extension OnboardingContentView {
 
     class func contentViewOnView(_ view: UIView, delegate: OnboardingContentViewDelegate, itemsCount: Int, bottomConstant: CGFloat) -> OnboardingContentView {
         let contentView = Init(OnboardingContentView(itemsCount: itemsCount, delegate: delegate)) {
@@ -74,11 +68,8 @@ extension OnboardingContentView {
         }
         return contentView
     }
-}
 
 // MARK: create
-
-extension OnboardingContentView {
 
      func commonInit() {
 
@@ -104,11 +95,8 @@ extension OnboardingContentView {
         delegate?.onboardingConfigurationItem(item, index: index)
         return item
     }
-}
 
 // MARK: animations
-
-extension OnboardingContentView {
 
      func hideItemView(_ item: OnboardingContentViewItem?, duration: Double) {
         guard let item = item else {

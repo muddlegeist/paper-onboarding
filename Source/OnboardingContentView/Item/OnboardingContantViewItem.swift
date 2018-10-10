@@ -27,11 +27,8 @@ open class OnboardingContentViewItem: UIView {
     public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
 // MARK: public
-
-extension OnboardingContentViewItem {
 
     class func itemOnView(_ view: UIView) -> OnboardingContentViewItem {
         let item = Init(OnboardingContentViewItem(frame: CGRect.zero)) {
@@ -65,11 +62,8 @@ extension OnboardingContentViewItem {
 
         return item
     }
-}
 
 // MARK: create
-
-private extension OnboardingContentViewItem {
 
     func commonInit() {
 
