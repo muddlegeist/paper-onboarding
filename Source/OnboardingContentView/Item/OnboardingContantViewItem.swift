@@ -10,16 +10,16 @@ import UIKit
 
 open class OnboardingContentViewItem: UIView {
 
-    public var descriptionBottomConstraint: NSLayoutConstraint?
-    public var titleCenterConstraint: NSLayoutConstraint?
-    public var informationImageWidthConstraint: NSLayoutConstraint?
-    public var informationImageHeightConstraint: NSLayoutConstraint?
+    open var descriptionBottomConstraint: NSLayoutConstraint?
+    open var titleCenterConstraint: NSLayoutConstraint?
+    open var informationImageWidthConstraint: NSLayoutConstraint?
+    open var informationImageHeightConstraint: NSLayoutConstraint?
     
     open var imageView: UIImageView?
     open var titleLabel: UILabel?
     open var descriptionLabel: UILabel?
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
