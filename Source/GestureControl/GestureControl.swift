@@ -14,9 +14,9 @@ public protocol GestureControlDelegate: class {
 
 open class GestureControl: UIView {
 
-    weak var delegate: GestureControlDelegate!
+    public weak var delegate: GestureControlDelegate!
 
-    init(view: UIView, delegate: GestureControlDelegate) {
+    public init(view: UIView, delegate: GestureControlDelegate) {
         self.delegate = delegate
 
         super.init(frame: CGRect.zero)
