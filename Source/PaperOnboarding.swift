@@ -84,7 +84,7 @@ open class PaperOnboarding: UIView, GestureControlDelegate, OnboardingContentVie
      - parameter index:    Scrolling to a curretn index item.
      - parameter animated: True if you want to animate the change in position; false if it should be immediate.
      */
-    func currentIndex(_ index: Int, animated: Bool) {
+    open func currentIndex(_ index: Int, animated: Bool) {
         if 0 ..< itemsCount ~= index {
             (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
             currentIndex = index
