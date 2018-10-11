@@ -33,7 +33,7 @@ open class OnboardingItemInfo {
 }
 
 /// An instance of PaperOnboarding which display collection of information.
-open class PaperOnboarding: UIView {
+open class PaperOnboarding: UIView, GestureControlDelegate, OnboardingContentViewDelegate {
 
     ///  The object that acts as the data source of the  PaperOnboardingDataSource.
     @IBOutlet weak open var dataSource: AnyObject? {
@@ -131,7 +131,7 @@ open class PaperOnboarding: UIView {
         addGestureRecognizer(tapGesture)
     }
 
-    @objc  func tapAction(_ sender: UITapGestureRecognizer) {
+    @objc open func tapAction(_ sender: UITapGestureRecognizer) {
         guard
             (delegate as? PaperOnboardingDelegate)?.enableTapsOnPageControl == true,
             let pageView = self.pageView,
@@ -186,13 +186,9 @@ open class PaperOnboarding: UIView {
         }
         return color
     }
-}
 
 // MARK: GestureControlDelegate
-
-extension PaperOnboarding: GestureControlDelegate {
-
-    func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizer.Direction) {
+    open func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizer.Direction) {
         switch direction {
         case UISwipeGestureRecognizer.Direction.right:
             currentIndex(currentIndex - 1, animated: true)
@@ -202,11 +198,8 @@ extension PaperOnboarding: GestureControlDelegate {
             fatalError()
         }
     }
-}
 
 // MARK: OnboardingDelegate
-
-extension PaperOnboarding: OnboardingContentViewDelegate {
 
     public func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo? {
         return itemsInfo?[index]
