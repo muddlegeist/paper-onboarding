@@ -25,7 +25,7 @@ open class OnboardingContentView: UIView {
     open var currentItem: OnboardingContentViewItem?
     open weak var delegate: OnboardingContentViewDelegate?
 
-    init(itemsCount _: Int, delegate: OnboardingContentViewDelegate) {
+    public init(itemsCount _: Int, delegate: OnboardingContentViewDelegate) {
         self.delegate = delegate
         super.init(frame: CGRect.zero)
 
